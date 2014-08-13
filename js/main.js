@@ -68,6 +68,20 @@ $(document).ready(function() {
 		location.reload();
 	});
 
+	$('.expand-overlay').click(function() {
+		var galleryid = "#" + $(this).attr('id').substring(7) + "-gallery";
+		if ($(this).hasClass('collapsed')) {
+			$(galleryid).removeClass('hide');
+			$(this).removeClass('collapsed');
+			$(this).html('–');
+		} else {
+			$(galleryid).addClass('hide');
+			$(this).addClass('collapsed');
+			$(this).html('+');
+		}
+
+	});
+
 });
 
 
