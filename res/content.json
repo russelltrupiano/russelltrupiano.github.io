@@ -1,0 +1,120 @@
+{
+	"NavTitles": [
+		{"title": "ABOUT", "class": "first-item"},
+		{"title": "WORK", "class": ""},
+		{"title": "EDUCATION", "class": ""},
+		{"title": "PROJECTS", "class": ""},
+		{"title": "PHOTOGRAPHY", "class": ""},
+		{"title": "CONTACT", "class": ""}
+	],
+
+	"AboutPage": {
+		"background": "../aboutbg.jpg",
+		"photo": "../img/me.jpg",
+		"aboutme": "Hi, my name is Russell Trupiano and I am a senior in
+					Computer Science Engineering at the University of
+					Michigan – Ann Arbor.",
+		"skills": [
+			"C/C++",
+			"C#",
+			"Java",
+			"HTML/CSS",
+			"Javascript/jQuery",
+			"BackboneJS",
+			"OSX/Linux/Windows",
+			"Photoshop",
+			"Python"
+		],
+		"interests": [
+			"Photography",
+			"Hiking",
+			"Music"
+		]
+	},
+
+	"WorkPage": {
+		"employers": [
+			{
+				"employer": "Microsoft",
+				"title": "Software Development Engineer Intern",
+				"duration": "May 2014 - August 2014",
+				"description": "Ported the Lucene open source search engine
+								library from Java to C# for improved searching
+								and indexing times of collected log files.
+								Porting process included the conversion of
+								2100 unit tests in order to ensure correctness
+								of the port.",
+				"awards": []
+			},
+			{
+				"employer": "Panera Bread",
+				"title": "Associate",
+				"duration": "May 2012 - August 2013",
+				"description": "Prepared the high quality salads, sandwiches,
+								and specialty beverages for patrons, and also
+								ensured cleanliness and a safe work environment
+								for all by following proper cleaning and safety
+								precautions. I also greeted and served patrons
+								at the drive through with an optimistic attitude
+								to ensure that patrons have the most pleasant
+								possible experience.",
+				"awards": [
+					"I was honored with the Panera Bread Associate of the Year
+					Award in August 2012 for providing quality products,
+					following proper procedures, have a great attitude and
+					always going above and beyond what was required of me."
+				]
+			},
+			{
+				"employer": "MJR Digital Cinemas",
+				"title": "Concession Supervisor",
+				"duration": "Noember 2009 - June 2011",
+				"description": "I was responsible for ensuring that other
+								employees followed proper protocol and
+								completed tasks to the highest standard.
+								I also assisted in resolving customer complaints
+								and other various issues by approaching these
+								situations with a positive attitude.",
+				"awards": []
+			}
+		]
+	},
+
+	"EducationPage": {
+		"schools": [
+			{
+				"name": "University of Michigan - Ann Arbor",
+				"duration": "September 2011 - April 2015",
+				"awards": [
+					"Angell Scholar",
+					"Dean's List",
+					"University Honors"
+				],
+				"courses": [
+					"Advanced and Object Oriented Programming",
+					"Operating Systems",
+					"Introduction to Computer Security",
+					"Introduction to Computer Architecture",
+					"Web Database and Information Systems (In Progress)",
+					"Software Engineering (In Progress)"
+				],
+				"organizations": [
+					"Michigan Hackers - Vice President",
+					"Tau Beta Pi - Member"
+				]
+			},
+			{
+				"name": "L'Anse Creuse High School - North",
+				"duration": "September 2007 - May 2011",
+				"awards": [
+					"Valedictorian of Class - GPA 4.167"
+				],
+				"courses": [
+					"AP Calculus AB - 5",
+					"AP Chemistry - 5",
+					"AP Physics B - 5"
+				]
+			}
+		]
+	}
+}
