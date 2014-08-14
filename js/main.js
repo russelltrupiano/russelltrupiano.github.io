@@ -7,7 +7,7 @@ $(document).ready(function() {
 		"#education-page": 3,
 		"#projects-page": 4,
 		"#photography-page": 5,
-		"#contact": 6
+		// "#contact": 6
 	};
 
 	var activePage = "#home-page";
@@ -22,10 +22,7 @@ $(document).ready(function() {
 		}
 	});
 
-	$('.nav-link').click(function() {
-
-		var thishref = $(this).attr('href');
-
+	function navigate(thishref) {
 		$('html, body').animate({
 			scrollTop: $(thishref).offset().top
 		}, 650, 'easeInOutExpo', function() {
@@ -41,6 +38,11 @@ $(document).ready(function() {
 		});
 
 		return false;
+	}
+
+	$('.nav-link').click(function() {
+		var thishref = $(this).attr('href');
+		return navigate(thishref);
 	});
 
 	$("[id*=-page]").waypoint(function(direction) {
@@ -49,11 +51,11 @@ $(document).ready(function() {
 		$("nav a[href=#" + $(this).attr('id') + "]").addClass("selected");
 	});
 
-	$("#contact").waypoint(function(event, direction) {
-		$('nav a').removeClass("selected");
-		activePage = "#contact";
-		$("nav a[href=#contact]").addClass("selected");
-	}, { offset: $(window).height() - parseInt($('#contact footer').css('height')) });
+	// $("#contact").waypoint(function(event, direction) {
+	// 	$('nav a').removeClass("selected");
+	// 	activePage = "#contact";
+	// 	$("nav a[href=#contact]").addClass("selected");
+	// }, { offset: $(window).height() - parseInt($('#contact footer').css('height')) });
 
 	function resizeBackground() {
 		$("[id*=-page] .background-wrapper").css("min-height", $(window).height());
@@ -69,118 +71,35 @@ $(document).ready(function() {
 	});
 
 	$('.expand-overlay').click(function() {
+		//get the data from the element
 		var baseid = $(this).attr('id').substring(7);
 		var galleryid = "#" + baseid + "-gallery";
 		var coverimg = $("." + baseid + "-cover img");
+
 		if ($(this).hasClass('collapsed')) {
-			// $(galleryid).removeClass('hide');
+			//change the image to title view
 			$(coverimg).attr('src', "./img/" + baseid + "title.png");
+			$(coverimg).addClass("title-view");
+			//show the gallery
 			$(galleryid).slideDown(function() {
 				$('html, body').animate({
 					scrollTop: $(galleryid).offset().top - 150
 				 });
 			});
 
-			// });, 500, 'easeInOutExpo', function() {
-			// 	$(galleryid).slideDown();
-			// });
 			$(this).removeClass('collapsed');
 			$(this).html('–');
 		} else {
-			// $(galleryid).addClass('hide');
+			//hide the gallery
 			$(galleryid).slideUp();
 			$(this).addClass('collapsed');
+			//return to cover view
 			$(coverimg).attr('src', "./img/" + baseid + "cover.jpg");
+			$(coverimg).removeClass("title-view");
 			$(this).html('+');
+			navigate("#photography-page");
 		}
 
 	});
 
 });
-
-
-
-
-
-/*
-
-var NavBarView = Backbone.View.extend({
-
-		template: _.template("<% _.each(items, function(item) { %> <a href='#<%= item.title.toLowerCase() %>-page'><%= item.title %></a><% }); %>"),
-
-		//<% _.each(items, function(item) { %> <a href='#<%= item.title.toLowerCase() %>-page'><%= item.title %></a>});
-
-		tagName: ".app-nav",
-
-		events: {
-			"click a": 		"navigate",
-		},
-
-		initialize: function() {
-			console.log("initializing navbarview");
-			console.log(this.$el);
-			this.render();
-		},
-
-		navigate: function() {
-			alert($(this).attr("href"));
-		},
-
-		render: function() {
-			console.log("rendering navbar");
-			this.$el.html(this.template({items: app.getNavItems()}));
-			console.log(this.template({items: app.getNavItems()}));
-			return this;
-		}
-	});
-
-	var App = Backbone.Model.extend({
-
-		initialize: function() {
-			console.log("initializing app");
-			//this.json = $.getJSON("../res/content.json");
-			this.currentNav = null;
-			this.json = {
-				"NavTitles": [
-					{"title": "ABOUT", "class": "first-item"},
-					{"title": "WORK", "class": ""},
-					{"title": "EDUCATION", "class": ""},
-					{"title": "PROJECTS", "class": ""},
-					{"title": "PHOTOGRAPHY", "class": ""},
-					{"title": "CONTACT", "class": ""}
-				]
-			};
-		},
-
-		getJSON: function() {
-			return this.json;
-		},
-
-		getNavItems: function() {
-			return this.json.NavTitles;
-		}
-	});
-
-	var AppView = Backbone.View.extend({
-		el: $("#app"),
-
-		initialize: function() {
-			console.log("initializing appview");
-			this.render();
-		},
-
-		render: function() {
-			new NavBarView();
-		}
-	});
-
-	$('nav a').click(function() {
-		$('nav a').removeClass("selected");
-		$(this).addClass("selected");
-	});
-
-	var app = new App;
-	new AppView;
-	Backbone.history.start();
-
-*/

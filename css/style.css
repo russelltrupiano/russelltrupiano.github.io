@@ -310,6 +310,13 @@ html {
 				.cropped-image img {
 					width: 100%;
 					overflow: hidden;
+					border-radius: 3px;
+					-webkit-box-shadow: 3px 3px 50px 0px rgba(0,0,0,0.75);
+					-moz-box-shadow: 3px 3px 50px 0px rgba(0,0,0,0.75);
+					box-shadow: 3px 3px 50px 0px rgba(0,0,0,0.75);
+				}
+
+				.image-wrapper {
 					padding: 30px 10px 0 10px;
 				}
 
@@ -360,9 +367,16 @@ html {
 							display: none;
 						}
 
+						.gallery-image-wrapper  {
+							padding: 20px 25px 0 25px;
+						}
+
 						.gallery-image {
 							width: 100%;
-							padding: 20px 25px 0 25px;
+							border-radius: 2px;
+							-webkit-box-shadow: 3px 3px 50px 0px rgba(0,0,0,0.75);
+							-moz-box-shadow: 3px 3px 50px 0px rgba(0,0,0,0.75);
+							box-shadow: 3px 3px 50px 0px rgba(0,0,0,0.75);
 						}
 
 			#contact {
@@ -377,17 +391,8 @@ html {
 					background: rgba(44, 44, 44, 0.9);
 				}
 
-					footer table, footer table tr {
-						width: 100%;
-					}
-
-					footer .split-table .split {
-						padding: 45px 0 0 0;
-						width: 50%;
-					}
-
 					.footer-text {
-						padding-left: 30px;
+						padding: 45px 0 0 0;
 						font-size: .9em;
 					}
 
