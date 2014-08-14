@@ -69,14 +69,28 @@ $(document).ready(function() {
 	});
 
 	$('.expand-overlay').click(function() {
-		var galleryid = "#" + $(this).attr('id').substring(7) + "-gallery";
+		var baseid = $(this).attr('id').substring(7);
+		var galleryid = "#" + baseid + "-gallery";
+		var coverimg = $("." + baseid + "-cover img");
 		if ($(this).hasClass('collapsed')) {
-			$(galleryid).removeClass('hide');
+			// $(galleryid).removeClass('hide');
+			$(coverimg).attr('src', "./img/" + baseid + "title.png");
+			$(galleryid).slideDown(function() {
+				$('html, body').animate({
+					scrollTop: $(galleryid).offset().top - 150
+				 });
+			});
+
+			// });, 500, 'easeInOutExpo', function() {
+			// 	$(galleryid).slideDown();
+			// });
 			$(this).removeClass('collapsed');
 			$(this).html('–');
 		} else {
-			$(galleryid).addClass('hide');
+			// $(galleryid).addClass('hide');
+			$(galleryid).slideUp();
 			$(this).addClass('collapsed');
+			$(coverimg).attr('src', "./img/" + baseid + "cover.jpg");
 			$(this).html('+');
 		}
 

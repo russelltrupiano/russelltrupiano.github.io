@@ -52,9 +52,12 @@ table {
 /* End reset */
 
 html {
-	font-family: 'Raleway', sans-serif;
 	min-width: 750px;
 }
+
+	a, h1, h2, h3, h4, h5, p, span {
+		font-family: 'Raleway', sans-serif;
+	}
 
 	#app {
 		background: url("../img/home1.jpg") no-repeat top center fixed;
@@ -168,6 +171,7 @@ html {
 
 					.home-text {
 						/*padding-top: 100px;*/
+						font-family: 'Raleway', sans-serif;
 						padding: 80px 20px;
 						color: white;
 						text-align: center;
@@ -185,7 +189,7 @@ html {
 
 						.home-text h3 {
 							padding-top: 50px;
-							font-size: 3em;
+							font-size: 2.5em;
 						}
 
 					.scroll-prompt {
@@ -224,7 +228,7 @@ html {
 				}
 
 				.content {
-					font-size: 1.4em;
+					font-size: 1.3em;
 					color: #333333;
 				}
 
@@ -237,6 +241,7 @@ html {
 				.content-subheader {
 					font-size: 1.4em;
 					color: #333333;
+					font-family: 'Raleway', sans-serif;
 				}
 
 				.content-small {
@@ -255,7 +260,7 @@ html {
 				.list-wrapper {
 				}
 
-					.list-wrapper li::before {
+					.list-wrapper li p::before {
 						content: "➢ ";
 					}
 
@@ -351,9 +356,13 @@ html {
 						cursor: pointer;
 					}
 
+						.hidden-gallery-view {
+							display: none;
+						}
+
 						.gallery-image {
 							width: 100%;
-							padding: 20px 10px 0 10px;
+							padding: 20px 25px 0 25px;
 						}
 
 			#contact {
