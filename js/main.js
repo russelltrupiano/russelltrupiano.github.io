@@ -83,7 +83,7 @@ $(document).ready(function() {
 			//show the gallery
 			$(galleryid).slideDown(function() {
 				$('html, body').animate({
-					scrollTop: $(galleryid).offset().top - 150
+					scrollTop: $(galleryid).offset().top - 200
 				 });
 			});
 
