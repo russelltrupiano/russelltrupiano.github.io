@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
 <body>
-	<a href="#home-page" class="nav-link"><div id="jump-top-wrapper"><div id="jump-top"></div></div></a>
+	<a href="#home-page" class="nav-link"><div id="jump-top-wrapper"><img src="./img/jumptop.png" alt=""></div></a>
 	<!-- App Interface -->
 	<header>
 		<nav>
@@ -39,10 +39,10 @@
 				</div>
 			</div>
 
-			<a class="nav-link" href="#about-page"><div class="scroll-prompt"></div></a>
+			<a class="nav-link" href="#about-page"><div class="scroll-prompt"><img src="./img/scrollprompt.png" alt=""></div></a>
 		</section>
 		<section id="about-page" class="snap">
-			<div class="background-wrapper">
+			<div data-stellar-background-ratio="0.5" class="background-wrapper">
 				<div class="page-title-banner">
 					<h3 class="content-header">
 						About
@@ -117,8 +117,8 @@
 
 		<!-- WORK PAGE -->
 
-		<section id="work-page">
-			<div class="background-wrapper">
+		<section id="work-page" class="snap">
+			<div data-stellar-background-ratio="0.5" class="background-wrapper">
 				<div class="page-title-banner">
 					<h3 class="content-header">
 						Work
@@ -229,8 +229,8 @@
 
 		<!-- EDUCATION -->
 
-		<section id="education-page">
-			<div class="background-wrapper">
+		<section id="education-page" class="snap">
+			<div data-stellar-background-ratio="0.5" class="background-wrapper">
 				<div class="page-title-banner">
 					<h3 class="content-header">
 						Education
@@ -378,8 +378,8 @@
 
 		<!-- PHOTOGRAPHY -->
 
-		<section id="photography-page">
-			<div class="background-wrapper">
+		<section id="photography-page" class="snap">
+			<div data-stellar-background-ratio="2" class="background-wrapper">
 				<div class="page-title-banner">
 					<h3 class="content-header">
 						Photography
@@ -389,12 +389,14 @@
 					<div class="row">
 						<div class="col-md-12 gallery-view architecture-cover">
 							<div class="cropped-image">
-								<div class="expand-overlay collapsed" id="expand-architecture">+</div>
+								<div class="expand-overlay collapsed ease-trans" id="expand-architecture">
+									<img src="./img/expand.png" alt="">
+								</div>
 								<div>
 									<p class="text-overlay">Architecture</p>
 								</div>
 								<div class="image-wrapper">
-									<img class="image" src="./img/architecturecover.jpg">
+									<img class="image ease-trans" src="./img/architecturecover.jpg">
 								</div>
 							</div>
 						</div>
@@ -409,12 +411,14 @@
 					<div class="row">
 						<div class="col-md-12 gallery-view">
 							<div class="cropped-image landscapes-cover">
-								<div class="expand-overlay collapsed" id="expand-landscapes">+</div>
+								<div class="expand-overlay collapsed ease-trans" id="expand-landscapes">
+									<img src="./img/expand.png" alt="">
+								</div>
 								<div>
 									<p class="text-overlay">Landscapes</p>
 								</div>
 								<div class="image-wrapper">
-									<img class="image" src="./img/landscapescover.jpg">
+									<img class="image ease-trans" src="./img/landscapescover.jpg">
 								</div>
 							</div>
 						</div>
@@ -444,7 +448,7 @@
 						<div class="col-md-4">
 							<p class="footer-text">&copy Russell Trupiano 2014. All Rights Reserved.</p>
 						</div>
-						<div class="col-md-4"></div>
+						<div class="col-md-4 hidden-sm"></div>
 						<div class="col-md-4 icons">
 							<!-- Insert contact images -->
 							<img src="./img/email.png" class="icon-list">
@@ -460,8 +464,9 @@
 	</main>
 
 	<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="./js/waypoints.min.js"></script>
 	<script type="text/javascript" src="./js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="./js/waypoints.min.js"></script>
+	<script type="text/javascript" src="./js/stellar.min.js"></script>
 	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="./js/main.js"></script>
 </body>

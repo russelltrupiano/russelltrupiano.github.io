@@ -1,14 +1,24 @@
 $(document).ready(function() {
 
+	$.stellar();
+
 	var navItems = {
 		"#home-page": 0,
 		"#about-page": 1,
 		"#work-page": 2,
 		"#education-page": 3,
 		"#projects-page": 4,
-		"#photography-page": 5,
-		// "#contact": 6
+		"#photography-page": 5
 	};
+
+	var navIds = [
+		"#home-page",
+		"#about-page",
+		"#work-page",
+		"#education-page",
+		"#projects-page",
+		"#photography-page"
+	];
 
 	var activePage = "#home-page";
 
@@ -18,7 +28,12 @@ $(document).ready(function() {
 		if ($(this).scrollTop() > offset) {
 			$("#jump-top-wrapper").fadeIn(duration);
 		} else {
-			$("#jump-top-wrapper").fadeOut(duration/3);
+			$("#jump-top-wrapper").fadeOut(duration);
+		}
+		if ($(this).scrollTop() > 0) {
+			$(".scroll-prompt").fadeOut(duration);
+		} else {
+			$(".scroll-prompt").fadeIn(duration);
 		}
 	});
 
@@ -32,10 +47,11 @@ $(document).ready(function() {
 			//If you're clicking up the page
 			if (navItems[thishref] < navItems[activePage]) {
 				$('nav a').removeClass("selected");
-				activePage = thishref;
 				$("nav a[href=" + thishref + "]").addClass("selected");
 			}
 		});
+
+		activePage = thishref;
 
 		return false;
 	}
@@ -78,25 +94,27 @@ $(document).ready(function() {
 
 		if ($(this).hasClass('collapsed')) {
 			//change the image to title view
+			$(this).html('<img src="./img/collapse.png" alt="">');
 			$(coverimg).attr('src', "./img/" + baseid + "title.png");
 			$(coverimg).addClass("title-view");
 			//show the gallery
-			$(galleryid).slideDown(function() {
+			$(galleryid).slideDown(800, function() {
 				$('html, body').animate({
 					scrollTop: $(galleryid).offset().top - 200
 				 });
 			});
 
+			$(this).addClass('expanded');
 			$(this).removeClass('collapsed');
-			$(this).html('–');
 		} else {
 			//hide the gallery
+			$(this).html('<img src="./img/expand.png" alt="">');
 			$(galleryid).slideUp();
 			$(this).addClass('collapsed');
+			$(this).removeClass('expanded');
 			//return to cover view
 			$(coverimg).attr('src', "./img/" + baseid + "cover.jpg");
 			$(coverimg).removeClass("title-view");
-			$(this).html('+');
 			navigate("#photography-page");
 		}
 
