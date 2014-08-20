@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-	$.stellar();
-
 	var navItems = {
 		"#home-page": 0,
 		"#about-page": 1,
@@ -21,6 +19,8 @@ $(document).ready(function() {
 	];
 
 	var activePage = "#home-page";
+
+	$('img.gallery-image').lazyload();
 
 	$(window).scroll(function() {
 		var offset = $(this).height() - 20;
