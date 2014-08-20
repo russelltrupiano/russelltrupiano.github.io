@@ -52,7 +52,7 @@ table {
 /* End reset */
 
 html {
-	min-width: 750px;
+	min-width: 890px;
 }
 
 	a, h1, h2, h3, h4, h5, p, span {
@@ -85,7 +85,7 @@ html {
 			#jump-top-wrapper img {
 				height: 80px;
 				width: 80px;
-				opacity: 0.5;
+				opacity: 0.35;
 				-webkit-transition: opacity 1s;
 				transition: opacity 1s;
 			}
@@ -235,7 +235,7 @@ html {
 						position: absolute;
 						width: 48px;
 						height: 48px;
-						opacity: .5;
+						opacity: .75;
 						bottom: 30px;
 						left: 50%;
 						margin-left: -24px;
@@ -244,7 +244,7 @@ html {
 					}
 
 					.scroll-prompt img:hover {
-						opacity: 0.75;
+						/*opacity: 0.75;*/
 						animation: bounce 650ms ease-out;
 						-moz-animation: bounce 650ms ease-out;
 						-o-animation: bounce 650ms ease-out;
@@ -334,7 +334,7 @@ html {
 				}
 
 				.page-wrapper .job-entry:first-child {
-					padding-top: 15px;
+					padding-top: 40px;
 				}
 
 				.page-wrapper .job-entry:last-child {
@@ -446,15 +446,24 @@ html {
 							}
 
 						.gallery-image-wrapper  {
-							padding: 20px 25px 0 25px;
+							padding: 20px 35px 0 35px;
 						}
 
 						.gallery-image {
-							width: 100%;
 							border-radius: 2px;
 							-webkit-box-shadow: 3px 3px 50px 0px rgba(0,0,0,0.75);
 							-moz-box-shadow: 3px 3px 50px 0px rgba(0,0,0,0.75);
 							box-shadow: 3px 3px 50px 0px rgba(0,0,0,0.75);
+						}
+
+						.portrait-image {
+							width: 40%;
+							margin-left: 30%;
+							/*margin: auto;*/
+						}
+
+						.landscape-image {
+							width: 100%;
 						}
 
 			#contact {
@@ -490,9 +499,10 @@ html {
 					.icon-list:hover {
 						-webkit-filter: grayscale(0%);
 						cursor: pointer;
-						/*animation: rotate 800ms ease-out;*/
-						/*-moz-animation: rotate 800ms ease-out;*/
-						/*-o-animation: rotate 800ms ease-out;*/
+						animation: subtlebounce 400ms ease-in;
+						-moz-animation: subtlebounce 400ms ease-in;
+						-o-animation: subtlebounce 400ms ease-in;
+						-webkit-animation: subtlebounce 400ms ease-in;
 						/*-moz-filter: grayscale(0%);*/
 						/*filter: grayscale(0%);*/
 					}
@@ -585,74 +595,62 @@ html {
 	}
 }
 
-@-webkit-keyframes rotate {
+@-webkit-keyframes subtlebounce {
 	0% {
-		-webkit-transform: rotateY(0deg);
+		-webkit-transform: translateY(0%);
+	}
+	33% {
+		-webkit-transform: translateY(-3%);
+	}
+	66% {
+		-webkit-transform: translateY(3%);
 	}
 	100% {
-		-webkit-transformation: rotateY(180deg);
+		-webkit-transform: translateY(0%);
 	}
 }
-/*
-@-moz-keyframes bounce {
+
+@-moz-keyframes subtlebounce {
 	0% {
 		-moz-transform: translateY(0%);
 	}
-	20% {
-		-moz-transform: translateY(-8%);
+	33% {
+		-moz-transform: translateY(-3%);
 	}
-	40% {
-		-moz-transform: translateY(8%);
-	}
-	60% {
-		-moz-transform: translateY(-8%);
-	}
-	80% {
-		-moz-transform: translateY(8%);
+	66% {
+		-moz-transform: translateY(3%);
 	}
 	100% {
 		-moz-transform: translateY(0%);
 	}
 }
 
-@-o-keyframes bounce {
+@-o-keyframes subtlebounce {
 	0% {
 		-o-transform: translateY(0%);
 	}
-	20% {
-		-o-transform: translateY(-8%);
+	33% {
+		-o-transform: translateY(-3%);
 	}
-	40% {
-		-o-transform: translateY(8%);
-	}
-	60% {
-		-o-transform: translateY(-8%);
-	}
-	80% {
-		-o-transform: translateY(8%);
+	66% {
+		-o-transform: translateY(3%);
 	}
 	100% {
 		-o-transform: translateY(0%);
 	}
 }
 
-@keyframes bounce {
+@keyframes subtlebounce {
 	0% {
 		transform: translateY(0%);
 	}
-	20% {
-		transform: translateY(-8%);
+	33% {
+		transform: translateY(-3%);
 	}
-	40% {
-		transform: translateY(8%);
-	}
-	60% {
-		transform: translateY(-8%);
-	}
-	80% {
-		transform: translateY(8%);
+	66% {
+		transform: translateY(3%);
 	}
 	100% {
 		transform: translateY(0%);
 	}
-}*/
+}
