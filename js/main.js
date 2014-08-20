@@ -22,6 +22,18 @@ $(document).ready(function() {
 
 	$('img.gallery-image').lazyload();
 
+	// setTimeout(function() {
+	// 	$('.splash').fadeOut(700, function() {
+	// 		$('#app').fadeIn(700);
+	// 	});
+	// }, 2000);
+
+	// $("#app").load(function() {
+	// 	$('.splash').fadeOut('slow', function() {
+	// 		$('#app').fadeIn(1000);
+	// 	});
+	// });
+
 	$(window).scroll(function() {
 		var offset = $(this).height() - 20;
 		var duration = 1000;
@@ -47,11 +59,14 @@ $(document).ready(function() {
 			//If you're clicking up the page
 			if (navItems[thishref] < navItems[activePage]) {
 				$('nav a').removeClass("selected");
+				console.log("removing selected from all nav");
+				console.log("Adding selected to " + thishref)
 				$("nav a[href=" + thishref + "]").addClass("selected");
 			}
 		});
 
 		activePage = thishref;
+		console.log("activePage is " + activePage);
 
 		return false;
 	}
@@ -62,9 +77,12 @@ $(document).ready(function() {
 	});
 
 	$("[id*=-page]").waypoint(function(direction) {
+		console.log("hit waypoint for " + $(this).attr('id'));
 		$('nav a').removeClass("selected");
 		activePage = "#" + $(this).attr('id');
+		console.log("activePage is " + activePage);
 		$("nav a[href=#" + $(this).attr('id') + "]").addClass("selected");
+		return true;
 	});
 
 	// $("#contact").waypoint(function(event, direction) {
@@ -75,38 +93,38 @@ $(document).ready(function() {
 
 	function resizeBackground() {
 		$("[id*=-page] .background-wrapper").css("min-height", $(window).height());
-		$("#home-page").css("min-height", $(window).height());
+		$("#home-page, .splash").css("min-height", $(window).height());
 	}
 
 	resizeBackground();
 
 	$(window).resize(resizeBackground);
 
-	$('.home-title a').click(function() {
+	$('.home-title').click(function() {
 		location.reload();
 	});
 
 	function makeTitleView(that, coverimg, baseid, callback) {
 		//change the image to title view
-		$(that).html('<img src="./img/collapse.png" alt="">');
 		$(coverimg).attr('src', "./img/" + baseid + "title.png");
 		$(coverimg).addClass("title-view");
+
+		$(that).html('<img class="collapse-button" src="./img/collapse.png" alt="">');
 
 		callback();
 	}
 
 	function makeGalleryView(that, coverimg, baseid, callback) {
-		//hide the gallery
-		$(that).html('<img src="./img/expand.png" alt="">');
-
-		//return to cover view
+		//change the image to cover view
 		$(coverimg).attr('src', "./img/" + baseid + "cover.jpg");
 		$(coverimg).removeClass("title-view");
+
+		$(that).html('<img class="expand-button" src="./img/expand.png" alt="">');
 
 		callback();
 	}
 
-	$('.expand-overlay').click(function() {
+	$('.button-overlay').click(function() {
 		//get the data from the element
 		var baseid = $(this).attr('id').substring(7);
 		var galleryid = "#" + baseid + "-gallery";
@@ -117,9 +135,12 @@ $(document).ready(function() {
 			makeTitleView(this, coverimg, baseid, function() {
 				//show the gallery
 				$(galleryid).slideDown(800, function() {
+
 					$('html, body').animate({
 						scrollTop: $(galleryid).offset().top - 200
-					 });
+					});
+
+					$(galleryid + " .collapse-button").show();
 				});
 			});
 

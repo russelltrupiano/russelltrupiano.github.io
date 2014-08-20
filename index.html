@@ -7,26 +7,61 @@
 	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/bootstrap.min.css">
+
+
+
 </head>
 <body>
-	<a href="#home-page" class="nav-link"><div id="jump-top-wrapper"><img src="./img/jumptop.png" alt=""></div></a>
-	<!-- App Interface -->
-	<header>
-		<nav>
-			<a class="nav-link" href="#about-page">ABOUT</a>
-			<span class="spacer">//</span>
-			<a class="nav-link" href="#work-page">WORK</a>
-			<span class="spacer">//</span>
-			<a class="nav-link" href="#education-page">EDUCATION</a>
-			<span class="spacer">//</span>
-			<!-- <a class="nav-link" href="#projects-page">PROJECTS</a> -->
-			<!-- <span class="spacer">//</span> -->
-			<a class="nav-link" href="#photography-page">PHOTOGRAPHY</a>
-			<!-- <span class="spacer">//</span> -->
-			<!-- <a class="nav-link" href="#contact">CONTACT</a> -->
-		</nav>
-	</header>
+	<!-- <div class="splash"> -->
+	<!-- <div class="splash" style="display:none"> -->
+	<!-- 	<div class="loading-wrapper">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="letters">
+						<div class="letter">L</div>
+						<div class="letter">O</div>
+						<div class="letter">A</div>
+						<div class="letter">D</div>
+						<div class="letter">I</div>
+						<div class="letter">N</div>
+						<div class="letter">G</div>
+						<div class="letter">.</div>
+						<div class="letter">.</div>
+						<div class="letter">.</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="ball letter2"></div>
+					<div class="ball letter1"></div>
+					<div class="ball letter3"></div>
+					<div class="ball letter2"></div>
+					<div class="ball letter1"></div>
+				</div>
+			</div>
+
+		</div>
+	</div> -->
+
+	<!-- <main id="app" style="display:none"> -->
 	<main id="app">
+		<a href="#home-page" class="nav-link"><div id="jump-top-wrapper"><img src="./img/jumptop.png" alt=""></div></a>
+		<!-- App Interface -->
+		<header>
+			<nav>
+				<a class="nav-link" href="#about-page">ABOUT</a>
+				<span class="spacer">//</span>
+				<a class="nav-link" href="#work-page">WORK</a>
+				<span class="spacer">//</span>
+				<a class="nav-link" href="#education-page">EDUCATION</a>
+				<span class="spacer">//</span>
+				<!-- <a class="nav-link" href="#projects-page">PROJECTS</a> -->
+				<!-- <span class="spacer">//</span> -->
+				<a class="nav-link" href="#photography-page">PHOTOGRAPHY</a>
+				<!-- <span class="spacer">//</span> -->
+				<!-- <a class="nav-link" href="#contact">CONTACT</a> -->
+			</nav>
+		</header>
+
 		<section id="home-page" class="snap">
 			<div class="home-title-wrapper">
 				<div class="home-title">
@@ -252,7 +287,8 @@
 									<div class="col-md-6"  style="padding-left: 0;">
 										<span class="content-header">University of Michigan</span>
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-2"></div>
+									<div class="col-md-4">
 										<span class="content-subheader float-right">September 2011 - April 2015</span>
 									</div>
 								</div>
@@ -272,8 +308,8 @@
 											I have volunteered for many activites such as MindSET, a program for teaching elementary students about engineering concepts and a Cub Scout Day where we taught engineering skills to scouts from all over the state. Topics varied from mechanical, civil, electrical and operations engineering.
 										</p>
 									</div>
-									<div class="col-md-1"></div>
-									<div class="col-md-5">
+									<div class="col-md-2"></div>
+									<div class="col-md-4">
 										<div class="list-wrapper">
 											<h3 class="content-subheader list-title">Relevant Courses</h3>
 											<ul class="content-small">
@@ -312,8 +348,9 @@
 									<div class="col-md-6"  style="padding-left: 0;">
 										<span class="content-header float-left">L'Anse Creuse High School - North</span>
 									</div>
-									<div class="col-md-6">
-										<span class="content-subheader float-right">September 2007 - May 2011</span>
+									<div class="col-md-2"></div>
+									<div class="col-md-4">
+										<span class="content-subheader">September 2007 - May 2011</span>
 									</div>
 								</div>
 								<div class="row job-title">
@@ -324,8 +361,8 @@
 										<p class="content-small">GPA: 4.167</p>
 										<p class="content-small">Awards: Class of 2011 Valedictorian</p>
 									</div>
-									<div class="col-md-1"></div>
-									<div class="col-md-5">
+									<div class="col-md-2"></div>
+									<div class="col-md-4">
 										<div class="list-wrapper">
 											<h3 class="content-subheader list-title">Relevant Courses</h3>
 											<ul class="content-small">
@@ -413,8 +450,8 @@
 					<div class="row">
 						<div class="col-md-12 gallery-view architecture-cover">
 							<div class="cropped-image">
-								<div class="expand-overlay collapsed ease-trans" id="expand-architecture">
-									<img src="./img/expand.png" alt="">
+								<div class="button-overlay collapsed ease-trans" id="expand-architecture">
+									<img class="expand-button" src="./img/expand.png" alt="">
 								</div>
 								<div>
 									<p class="text-overlay">Architecture</p>
@@ -462,8 +499,8 @@
 					<div class="row">
 						<div class="col-md-12 gallery-view">
 							<div class="cropped-image landscapes-cover">
-								<div class="expand-overlay collapsed ease-trans" id="expand-landscapes">
-									<img src="./img/expand.png" alt="">
+								<div class="button-overlay collapsed ease-trans" id="expand-landscapes">
+									<img class="expand-button" src="./img/expand.png" alt="">
 								</div>
 								<div>
 									<p class="text-overlay">Landscapes</p>
@@ -541,6 +578,8 @@
 		</section>
 
 	</main>
+
+
 
 	<script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="./js/jquery.easing.1.3.js"></script>

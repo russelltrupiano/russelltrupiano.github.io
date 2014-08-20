@@ -59,8 +59,50 @@ html {
 		font-family: 'Raleway', sans-serif;
 	}
 
+	.splash {
+		text-align: center;
+		padding-top: 25%;
+		/*padding-left: 45%;*/
+		background-size: cover;
+		z-index: 2000;
+		/*position: absolute;*/
+		overflow: hidden;
+	}
+
+		div.splash div.ball {
+			height: 30px;
+			width: 30px;
+			background: black;
+			border-radius: 30px;
+			display: inline-block;
+		}
+
+		div.splash .letters {
+			padding-bottom: 20px;
+		}
+
+		div.splash .letter {
+			font-size: 2em;
+			display: inline-block;
+		}
+
+		div.splash .letter1 {
+			-webkit-animation: bounce1 .5s;
+			-webkit-animation-iteration-count: infinite;
+		}
+
+		div.splash .letter2 {
+			-webkit-animation: bounce2 .5s;
+			-webkit-animation-iteration-count: infinite;
+		}
+
+		div.splash .letter3 {
+			-webkit-animation: bounce3 .5s;
+			-webkit-animation-iteration-count: infinite;
+		}
+
 	#app {
-		background: url("../img/home1.jpg") no-repeat top center fixed;
+		background: url("../img/home.png") no-repeat top center fixed;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
@@ -71,6 +113,7 @@ html {
 			position: fixed;
 			right: 35px;
 			bottom: 35px;
+			z-index: 1;
 			/*border: 2px solid white;*/
 			/*background: rgba(0, 0, 0, 0.2);*/
 			/*border-radius: 10px;*/
@@ -115,7 +158,7 @@ html {
 			padding-bottom: 10px;
 			background: rgba(204, 209, 215, 1);
 			border-bottom: 1px solid #A3A7AC;
-			z-index: 1000;
+			z-index: 10000;
 			-webkit-box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.15);
 			-moz-box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.15);
 			box-shadow: 3px 3px 20px 0px rgba(0,0,0,0.15);
@@ -138,9 +181,6 @@ html {
 			nav span.spacer {
 				padding: 0 5px 0 5px;
 			}
-
-		main#app {
-		}
 
 			.page-title-banner {
 				padding-top: 45px;
@@ -363,7 +403,7 @@ html {
 
 			.background-wrapper {
 				background-color: rgba(255, 255, 255, 0.85);
-				border-bottom: 1px solid #111111;
+				border-bottom: 1px solid #adadad;
 				position: relative;
 			}
 
@@ -399,17 +439,22 @@ html {
 						padding: 5px;
 					}
 
-					.expand-overlay img {
+					.button-overlay img {
 						position: absolute;
-						height: 50px;
 						bottom: 20px;
 						right: 30px;
+					}
+
+					.expand-button,
+					.collapse-button {
+						height: 50px;
 						z-index: 100;
 						opacity: 0.5;
 						-webkit-transition: opacity 1s;
 					}
 
-					.expand-overlay img:hover {
+					.expand-button:hover,
+					.collapse-button:hover {
 						opacity: 0.8;
 						cursor: pointer;
 					}
@@ -418,6 +463,11 @@ html {
 						height: 50px;
 						bottom: 20px;
 						right: 30px;
+					}
+
+					.eog-button {
+						display: none;
+						margin-top: 20px;
 					}
 
 					/*.expanded img {
@@ -446,7 +496,7 @@ html {
 							}
 
 						.gallery-image-wrapper  {
-							padding: 20px 35px 0 35px;
+							padding: 20px 45px 0 45px;
 						}
 
 						.gallery-image {
@@ -652,5 +702,50 @@ html {
 	}
 	100% {
 		transform: translateY(0%);
+	}
+}
+
+@-webkit-keyframes bounce1 {
+	0% {
+		-webkit-transform: translateY(0%);
+	}
+	33% {
+		-webkit-transform: translateY(-15%);
+	}
+	66% {
+		-webkit-transform: translateY(0%);
+	}
+	100% {
+		-webkit-transform: translateY(15%);
+	}
+}
+
+@-webkit-keyframes bounce2 {
+	0% {
+		-webkit-transform: translateY(-15%);
+	}
+	33% {
+		-webkit-transform: translateY(0%);
+	}
+	66% {
+		-webkit-transform: translateY(15%);
+	}
+	100% {
+		-webkit-transform: translateY(0%);
+	}
+}
+
+@-webkit-keyframes bounce3 {
+	0% {
+		-webkit-transform: translateY(15%);
+	}
+	33% {
+		-webkit-transform: translateY(0%);
+	}
+	66% {
+		-webkit-transform: translateY(-15%);
+	}
+	100% {
+		-webkit-transform: translateY(0%);
 	}
 }
