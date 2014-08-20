@@ -86,6 +86,26 @@ $(document).ready(function() {
 		location.reload();
 	});
 
+	function makeTitleView(that, coverimg, baseid, callback) {
+		//change the image to title view
+		$(that).html('<img src="./img/collapse.png" alt="">');
+		$(coverimg).attr('src', "./img/" + baseid + "title.png");
+		$(coverimg).addClass("title-view");
+
+		callback();
+	}
+
+	function makeGalleryView(that, coverimg, baseid, callback) {
+		//hide the gallery
+		$(that).html('<img src="./img/expand.png" alt="">');
+
+		//return to cover view
+		$(coverimg).attr('src', "./img/" + baseid + "cover.jpg");
+		$(coverimg).removeClass("title-view");
+
+		callback();
+	}
+
 	$('.expand-overlay').click(function() {
 		//get the data from the element
 		var baseid = $(this).attr('id').substring(7);
@@ -93,28 +113,28 @@ $(document).ready(function() {
 		var coverimg = $("." + baseid + "-cover img");
 
 		if ($(this).hasClass('collapsed')) {
-			//change the image to title view
-			$(this).html('<img src="./img/collapse.png" alt="">');
-			$(coverimg).attr('src', "./img/" + baseid + "title.png");
-			$(coverimg).addClass("title-view");
-			//show the gallery
-			$(galleryid).slideDown(800, function() {
-				$('html, body').animate({
-					scrollTop: $(galleryid).offset().top - 200
-				 });
+
+			makeTitleView(this, coverimg, baseid, function() {
+				//show the gallery
+				$(galleryid).slideDown(800, function() {
+					$('html, body').animate({
+						scrollTop: $(galleryid).offset().top - 200
+					 });
+				});
 			});
 
 			$(this).addClass('expanded');
 			$(this).removeClass('collapsed');
+
 		} else {
-			//hide the gallery
-			$(this).html('<img src="./img/expand.png" alt="">');
-			$(galleryid).slideUp();
+
+			makeGalleryView(this, coverimg, baseid, function() {
+				$(galleryid).slideUp();
+			});
+
 			$(this).addClass('collapsed');
 			$(this).removeClass('expanded');
-			//return to cover view
-			$(coverimg).attr('src', "./img/" + baseid + "cover.jpg");
-			$(coverimg).removeClass("title-view");
+
 			navigate("#photography-page");
 		}
 
