@@ -64,14 +64,11 @@ $(document).ready(function() {
 			//If you're clicking up the page
 			if (navItems[thishref] < navItems[activePage]) {
 				$('nav a').removeClass("selected");
-				console.log("removing selected from all nav");
-				console.log("Adding selected to " + thishref)
 				$("nav a[href=" + thishref + "]").addClass("selected");
 			}
 		});
 
 		activePage = thishref;
-		console.log("activePage is " + activePage);
 
 		return false;
 	}
@@ -82,10 +79,8 @@ $(document).ready(function() {
 	});
 
 	$("[id*=-page]").waypoint(function(direction) {
-		console.log("hit waypoint for " + $(this).attr('id'));
 		$('nav a').removeClass("selected");
 		activePage = "#" + $(this).attr('id');
-		console.log("activePage is " + activePage);
 		$("nav a[href=#" + $(this).attr('id') + "]").addClass("selected");
 		return true;
 	});
@@ -99,6 +94,10 @@ $(document).ready(function() {
 	function resizeBackground() {
 		$("[id*=-page] .background-wrapper").css("min-height", $(window).height());
 		$("#home-page, .splash").css("min-height", $(window).height());
+		// Re center the splash
+		var windowHeight = $(window).height();
+		var splashHeight = $('.home-title').height();
+		$('.home-title-wrapper').css('margin-top', windowHeight/2 - splashHeight/2 - 35);
 	}
 
 	resizeBackground();

@@ -52,7 +52,13 @@ table {
 /* End reset */
 
 html {
-	min-width: 800px;
+	height: 100%;
+	min-height: 100%;
+}
+
+body {
+	min-height: 100%;
+	min-width: 450px;
 }
 
 	a, h1, h2, h3, h4, h5, p, span {
@@ -152,6 +158,7 @@ html {
 			position: fixed;
 			color: black;
 			width: 100%;
+			min-width: 450px;
 			font-size: 1.1em;
 			height: 40px;
 			text-align: center;
@@ -216,7 +223,7 @@ html {
 			}
 
 			.background-wrapper {
-				width: 60%;
+				/*width: 60%;*/
 				margin: auto;
 			}
 
@@ -322,16 +329,16 @@ html {
 					text-decoration: underline;
 				}
 
-				.content-header {
-					font-size: 1.7em;
+				h3.content-header {
+					/*font-size: 1.7em;*/
 					font-family: 'Raleway', sans-serif;
 					color: #333333;
 				}
 
-				.content-subheader {
-					font-size: 1.3em;
-					color: #333333;
+				h4.content-subheader {
+					/*font-size: 1.3em;*/
 					font-family: 'Raleway', sans-serif;
+					color: #333333;
 				}
 
 				.content, .content-small {
@@ -522,14 +529,14 @@ html {
 						}
 
 			#contact {
-				width: 60%;
+				/*width: 60%;*/
 				margin: auto;
 			}
 
 				#contact footer {
 					color: white;
 					background: rgba(44, 44, 44, 0.9);
-					padding: 20px 0 20px 0;
+					padding: 20px 0 15px 0;
 				}
 
 					.footer-text {
