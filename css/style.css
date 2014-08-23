@@ -354,14 +354,15 @@ body {
 				}
 
 				.hor-split-bottom {
-					padding-top: 20px;
+					padding-top: 50px;
 				}
 
 				.list-wrapper {
 				}
 
 					.list-wrapper li p::before {
-						content: "➢ ";
+						/*content: "➢ ";*/
+						content: "▪ ";
 					}
 
 			.background-wrapper, #contact footer {
