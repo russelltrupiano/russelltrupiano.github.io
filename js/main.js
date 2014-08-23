@@ -120,7 +120,7 @@ $(document).ready(function() {
 
 	function makeGalleryView(that, coverimg, baseid, callback) {
 		//change the image to cover view
-		$(coverimg).attr('src', "./img/" + baseid + "cover.jpg");
+		$(coverimg).attr('src', "./img/" + baseid + "cover.png");
 		$(coverimg).removeClass("title-view");
 
 		$(that).html('<img class="expand-button" src="./img/expand.png" alt="">');
@@ -131,6 +131,7 @@ $(document).ready(function() {
 	$('.button-overlay').click(function() {
 		//get the data from the element
 		var baseid = $(this).attr('id').substring(7);
+		var coverWrapper = "." + baseid + "-cover";
 		var galleryid = "#" + baseid + "-gallery";
 		var coverimg = $("." + baseid + "-cover img");
 		var that = $(this);
@@ -142,7 +143,7 @@ $(document).ready(function() {
 				$(galleryid).slideDown(800, function() {
 
 					$('html, body').animate({
-						scrollTop: $(galleryid).offset().top - 200
+						scrollTop: $(coverWrapper).offset().top - 38
 					});
 
 					$(galleryid + " .collapse-button").show();
