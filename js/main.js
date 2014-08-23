@@ -22,6 +22,11 @@ $(document).ready(function() {
 
 	$('img.gallery-image').lazyload();
 
+	// $('.home-title').fitText({minFontSize: '12px', maxFontSize: '72px'});
+	$('.home-title, .footer-wrapper').fitText();
+
+	// $('.snap').sticky({topSpacing: 0});
+
 	// setTimeout(function() {
 	// 	$('.splash').fadeOut(700, function() {
 	// 		$('#app').fadeIn(700);
@@ -129,6 +134,7 @@ $(document).ready(function() {
 		var baseid = $(this).attr('id').substring(7);
 		var galleryid = "#" + baseid + "-gallery";
 		var coverimg = $("." + baseid + "-cover img");
+		var that = $(this);
 
 		if ($(this).hasClass('collapsed')) {
 
@@ -142,19 +148,22 @@ $(document).ready(function() {
 
 					$(galleryid + " .collapse-button").show();
 				});
+				that.removeClass('collapsed');
+				that.addClass('expanded');
 			});
 
-			$(this).addClass('expanded');
-			$(this).removeClass('collapsed');
+
 
 		} else {
 
 			makeGalleryView(this, coverimg, baseid, function() {
-				$(galleryid).slideUp();
+				$(galleryid).slideUp(function() {
+					that.removeClass('expanded');
+					that.addClass('collapsed');
+				});
 			});
 
-			$(this).addClass('collapsed');
-			$(this).removeClass('expanded');
+
 
 			navigate("#photography-page");
 		}
