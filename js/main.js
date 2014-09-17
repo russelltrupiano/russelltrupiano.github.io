@@ -1,173 +1,170 @@
 $(document).ready(function() {
 
-	var navItems = {
-		"#home-page": 0,
-		"#about-page": 1,
-		"#work-page": 2,
-		"#education-page": 3,
-		"#projects-page": 4,
-		"#photography-page": 5
-	};
+    var navItems = {
+        "#home-page": 0,
+        "#about-page": 1,
+        "#work-page": 2,
+        "#education-page": 3,
+        "#projects-page": 4,
+        "#photography-page": 5
+    };
 
-	var navIds = [
-		"#home-page",
-		"#about-page",
-		"#work-page",
-		"#education-page",
-		"#projects-page",
-		"#photography-page"
-	];
+    var navIds = [
+        "#home-page",
+        "#about-page",
+        "#work-page",
+        "#education-page",
+        "#projects-page",
+        "#photography-page"
+    ];
 
-	var activePage = "#home-page";
+    var activePage = "#home-page";
 
-	$('img.gallery-image').lazyload();
+    $('img.gallery-image').lazyload();
 
-	// $('.home-title').fitText({minFontSize: '12px', maxFontSize: '72px'});
-	$('.home-title, .footer-wrapper').fitText();
+    // $('.cropped-image').sticky({topSpacing:39});
 
-	// $('.snap').sticky({topSpacing: 0});
+    // $('.home-title').fitText({minFontSize: '12px', maxFontSize: '72px'});
+    $('.home-title, .footer-wrapper').fitText();
 
-	// setTimeout(function() {
-	// 	$('.splash').fadeOut(700, function() {
-	// 		$('#app').fadeIn(700);
-	// 	});
-	// }, 2000);
+    // $('.snap').sticky({topSpacing: 0});
 
-	// $("#app").load(function() {
-	// 	$('.splash').fadeOut('slow', function() {
-	// 		$('#app').fadeIn(1000);
-	// 	});
-	// });
+    // setTimeout(function() {
+    //  $('.splash').fadeOut(700, function() {
+    //      $('#app').fadeIn(700);
+    //  });
+    // }, 2000);
 
-	$(window).scroll(function() {
-		var offset = $(this).height() - 20;
-		var duration = 1000;
-		if ($(this).scrollTop() > offset) {
-			$("#jump-top-wrapper").fadeIn(duration);
-		} else {
-			$("#jump-top-wrapper").fadeOut(duration);
-		}
-		if ($(this).scrollTop() > 0) {
-			$(".scroll-prompt").fadeOut(duration);
-		} else {
-			$(".scroll-prompt").fadeIn(duration);
-		}
-	});
+    // $("#app").load(function() {
+    //  $('.splash').fadeOut('slow', function() {
+    //      $('#app').fadeIn(1000);
+    //  });
+    // });
 
-	function navigate(thishref) {
-		$('html, body').animate({
-			scrollTop: $(thishref).offset().top
-		}, 650, 'easeInOutExpo', function() {
-			// Workaround for when clicking up the page, waypoints aren't
-			//registered, this indicating incorrect pnav item
+    $(window).scroll(function() {
+        var offset = $(this).height() - 40;
+        var duration = 1000;
+        if ($(this).scrollTop() > offset) {
+            $("#jump-top-wrapper").fadeIn(duration);
+        } else {
+            $("#jump-top-wrapper").fadeOut(duration);
+        }
+        if ($(this).scrollTop() > 0) {
+            $(".scroll-prompt").fadeOut(duration);
+        } else {
+            $(".scroll-prompt").fadeIn(duration);
+        }
+    });
 
-			//If you're clicking up the page
-			if (navItems[thishref] < navItems[activePage]) {
-				$('nav a').removeClass("selected");
-				$("nav a[href=" + thishref + "]").addClass("selected");
-			}
-		});
+    function navigate(thishref) {
+        $('html, body').animate({
+            scrollTop: $(thishref).offset().top - 39
+        }, 650, 'easeInOutExpo', function() {
+            // Workaround for when clicking up the page, waypoints aren't
+            //registered, this indicating incorrect pnav item
 
-		activePage = thishref;
+            //If you're clicking up the page
+            if (navItems[thishref] < navItems[activePage]) {
+                $('nav a').removeClass("selected");
+                $("nav a[href=" + thishref + "]").addClass("selected");
+            }
+        });
 
-		return false;
-	}
+        activePage = thishref;
 
-	$('.nav-link').click(function() {
-		var thishref = $(this).attr('href');
-		return navigate(thishref);
-	});
+        return false;
+    }
 
-	$("[id*=-page]").waypoint(function(direction) {
-		$('nav a').removeClass("selected");
-		activePage = "#" + $(this).attr('id');
-		$("nav a[href=#" + $(this).attr('id') + "]").addClass("selected");
-		return true;
-	});
+    $('.nav-link').click(function() {
+        var thishref = $(this).attr('href');
+        return navigate(thishref);
+    });
 
-	// $("#contact").waypoint(function(event, direction) {
-	// 	$('nav a').removeClass("selected");
-	// 	activePage = "#contact";
-	// 	$("nav a[href=#contact]").addClass("selected");
-	// }, { offset: $(window).height() - parseInt($('#contact footer').css('height')) });
+    $("[id*=-page]").waypoint(function(direction) {
+        $('nav a').removeClass("selected");
+        activePage = "#" + $(this).attr('id');
+        $("nav a[href=#" + $(this).attr('id') + "]").addClass("selected");
+        return true;
+    }, {offset: 39});
 
-	function resizeBackground() {
-		$("[id*=-page] .background-wrapper").css("min-height", $(window).height());
-		$("#home-page, .splash").css("min-height", $(window).height());
-		// Re center the splash
-		var windowHeight = $(window).height();
-		var splashHeight = $('.home-title').height();
-		$('.home-title-wrapper').css('margin-top', windowHeight/2 - splashHeight/2 - 35);
-	}
+    // $("#contact").waypoint(function(event, direction) {
+    //  $('nav a').removeClass("selected");
+    //  activePage = "#contact";
+    //  $("nav a[href=#contact]").addClass("selected");
+    // }, { offset: $(window).height() - parseInt($('#contact footer').css('height')) });
 
-	resizeBackground();
+    function resizeBackground() {
+        $("[id*=-page] .background-wrapper").css("min-height", $(window).height() - 39);
+        $("#home-page, .splash").css("min-height", $(window).height());
+        // Re center the splash
+        var windowHeight = $(window).height();
+        var splashHeight = $('.home-title').height();
+        $('.home-title-wrapper').css('margin-top', windowHeight/2 - splashHeight/2 - 39);
+    }
 
-	$(window).resize(resizeBackground);
+    resizeBackground();
 
-	$('.home-title').click(function() {
-		location.reload();
-	});
+    $(window).resize(resizeBackground);
 
-	function makeTitleView(that, coverimg, baseid, callback) {
-		//change the image to title view
-		$(coverimg).attr('src', "./img/" + baseid + "title.png");
-		$(coverimg).addClass("title-view");
+    $('.home-title').click(function() {
+        location.reload();
+    });
 
-		$(that).html('<img class="collapse-button" src="./img/collapse.png" alt="">');
+    function makeTitleView(that, coverimg, baseid, callback) {
+        //change the image to title view
+        $(coverimg).attr('src', "./img/" + baseid + "title.png");
+        $(coverimg).addClass("title-view");
 
-		callback();
-	}
+        $(that).html('<img class="collapse-button" src="./img/collapse.png" alt="">');
 
-	function makeGalleryView(that, coverimg, baseid, callback) {
-		//change the image to cover view
-		$(coverimg).attr('src', "./img/" + baseid + "cover.png");
-		$(coverimg).removeClass("title-view");
+        callback();
+    }
 
-		$(that).html('<img class="expand-button" src="./img/expand.png" alt="">');
+    function makeGalleryView(that, coverimg, baseid, callback) {
+        //change the image to cover view
+        $(coverimg).attr('src', "./img/" + baseid + "cover.png");
+        $(coverimg).removeClass("title-view");
 
-		callback();
-	}
+        $(that).html('<img class="expand-button" src="./img/expand.png" alt="">');
 
-	$('.button-overlay').click(function() {
-		//get the data from the element
-		var baseid = $(this).attr('id').substring(7);
-		var coverWrapper = "." + baseid + "-cover";
-		var galleryid = "#" + baseid + "-gallery";
-		var coverimg = $("." + baseid + "-cover img");
-		var that = $(this);
+        callback();
+    }
 
-		if ($(this).hasClass('collapsed')) {
+    $('.button-overlay').click(function() {
+        //get the data from the element
+        var baseid = $(this).attr('id').substring(7);
+        var coverWrapper = "." + baseid + "-cover";
+        var galleryid = "#" + baseid + "-gallery";
+        var coverimg = $("." + baseid + "-cover img");
+        var that = $(this);
 
-			makeTitleView(this, coverimg, baseid, function() {
-				//show the gallery
-				$(galleryid).slideDown(800, function() {
+        if ($(this).hasClass('collapsed')) {
 
-					$('html, body').animate({
-						scrollTop: $(coverWrapper).offset().top - 38
-					});
+            makeTitleView(this, coverimg, baseid, function() {
+                //show the gallery
+                $(galleryid).slideDown(600, function() {
 
-					$(galleryid + " .collapse-button").show();
-				});
-				that.removeClass('collapsed');
-				that.addClass('expanded');
-			});
+                    $('html, body').animate({
+                        scrollTop: $(coverWrapper).offset().top - 39
+                    });
 
+                    $(galleryid + " .collapse-button").show();
+                });
+                that.removeClass('collapsed');
+                that.addClass('expanded');
+            });
+        } else {
 
+            makeGalleryView(this, coverimg, baseid, function() {
+                $(galleryid).slideUp(function() {
+                    that.removeClass('expanded');
+                    that.addClass('collapsed');
+                });
+            });
 
-		} else {
+            navigate("#photography-page");
+        }
 
-			makeGalleryView(this, coverimg, baseid, function() {
-				$(galleryid).slideUp(function() {
-					that.removeClass('expanded');
-					that.addClass('collapsed');
-				});
-			});
-
-
-
-			navigate("#photography-page");
-		}
-
-	});
+    });
 
 });

@@ -194,7 +194,8 @@ body {
 			}
 
 			.page-title-banner {
-				padding-top: 45px;
+				/*display: none;*/
+				padding-top: 10px;
 				width: 100%;
 				text-align: center;
 			}
@@ -310,7 +311,7 @@ body {
 			}
 
 				.me {
-					width: 45%;
+					width: 35%;
 					border-radius: 5px;
 					-webkit-box-shadow: 1px 1px 20px 0px rgba(0,0,0,0.55);
 					-moz-box-shadow: 1px 1px 20px 0px rgba(0,0,0,0.55);
@@ -354,7 +355,7 @@ body {
 				}
 
 				.hor-split-bottom {
-					padding-top: 50px;
+					padding-top: 40px;
 				}
 
 				.list-wrapper {
@@ -366,9 +367,9 @@ body {
 					}
 
 			.background-wrapper, #contact footer {
-				-webkit-box-shadow: inset 25px 0 25px -25px rgba(0, 0, 0, 0.45), inset -25px 0 25px -25px rgba(0, 0, 0, 0.45);
+				/*-webkit-box-shadow: inset 25px 0 25px -25px rgba(0, 0, 0, 0.45), inset -25px 0 25px -25px rgba(0, 0, 0, 0.45);
 				-moz-box-shadow: inset 25px 0 25px -25px rgba(0, 0, 0, 0.45), inset -25px 0 25px -25px rgba(0, 0, 0, 0.45);
-				box-shadow: inset 25px 0 25px -25px rgba(0, 0, 0, 0.45), inset -25px 0 25px -25px rgba(0, 0, 0, 0.45);
+				box-shadow: inset 25px 0 25px -25px rgba(0, 0, 0, 0.45), inset -25px 0 25px -25px rgba(0, 0, 0, 0.45);*/
 			}
 
 			/*#work-page .background-wrapper {
@@ -383,7 +384,7 @@ body {
 					float: right;
 				}
 
-				.job-entry {
+/*				.job-entry {
 					padding-top: 50px;
 					padding-bottom: 50px;
 				}
@@ -394,10 +395,14 @@ body {
 
 				.page-wrapper .job-entry:last-child {
 					padding-bottom: 0;
-				}
+				}*/
 
-				.job-company::after {
+				/*.job-company::after {
 					padding-bottom: 10px;
+				}*/
+
+				.job-description .list-wrapper {
+					margin-top: -10px;
 				}
 
 				.company-image {
@@ -429,7 +434,7 @@ body {
 				.cropped-image .image {
 					width: 100%;
 					/*overflow: hidden;*/
-					border-radius: 3px;
+					/*border-radius: 3px;*/
 					-webkit-box-shadow: 1px 1px 20px 0px rgba(0,0,0,0.55);
 					-moz-box-shadow: 1px 1px 20px 0px rgba(0,0,0,0.55);
 					box-shadow: 1px 1px 20px 0px rgba(0,0,0,0.55);
@@ -443,6 +448,8 @@ body {
 					position: relative;
 					display: inline-block;
 					text-align: center;
+					z-index: 100;
+					width: 100%;
 					/*padding-bottom: 30px;*/
 				}
 
